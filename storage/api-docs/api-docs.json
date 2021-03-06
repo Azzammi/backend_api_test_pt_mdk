@@ -1,0 +1,130 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API documentation",
+        "description": "API Doc menggunalan Swagger Untuk Test Teknis PT.MDK",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "email": "luthfi_azzammi@hotmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/login": {
+            "get": {
+                "tags": [
+                    "login"
+                ],
+                "summary": "Returns API response message",
+                "description": "An API to login to app",
+                "operationId": "login",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "alamat email pengguna",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "password pengguna",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/getUsers": {
+            "get": {
+                "tags": [
+                    "get name"
+                ],
+                "summary": "Returns API response JSON",
+                "description": "An API to get list of name",
+                "operationId": "getUsers",
+                "responses": {
+                    "default": {
+                        "description": "return list of name in json format"
+                    }
+                }
+            }
+        },
+        "/registerUser": {
+            "get": {
+                "tags": [
+                    "register"
+                ],
+                "summary": "Returns API response message",
+                "description": "An API to register new user",
+                "operationId": "registerUser",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "nama pengguna",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "alamat email pengguna",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "password pengguna",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "api_key": {
+                "type": "apiKey",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "login",
+            "description": "login with email and password"
+        }
+    ],
+    "security": [
+        []
+    ]
+}

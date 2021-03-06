@@ -11,6 +11,37 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
+    /**
+     * @OA\Get(
+     *     path="/login",
+     *     tags={"login"},
+     *     summary="Returns API response message",
+     *     description="An API to login to app",
+     *     operationId="login",
+     *     @OA\Parameter(
+     *          name="email",
+     *          description="alamat email pengguna",
+     *          required=true,
+     *          in="query",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *     ),
+     *     @OA\Parameter(
+     *          name="password",
+     *          description="password pengguna",
+     *          required=true,
+     *          in="query",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *     ),
+     *     @OA\Response(
+     *         response="default",
+     *         description="successful operation"
+     *     )
+     * )
+     */
     public function login(Request $request){
         $validate = Validator::make($request->all(), [
             'email' => 'required',
@@ -57,6 +88,7 @@ class AuthController extends Controller
             return response()->json($respon, 200);
         }        
     }
+    /*
     public function logout(Request $request) {
         $user = $request->user();
         $user->currentAccessToken()->delete();
@@ -80,4 +112,5 @@ class AuthController extends Controller
         ];
         return response()->json($respon, 200);
     }
+    */
 }
